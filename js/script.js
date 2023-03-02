@@ -7,10 +7,12 @@ const converterNumero = () => {
         return
     }
 
-    if(isNaN(input)) {
+    if(/^[IVXLCDMivxlcdm\s]+$/.test(input)) {
         result.innerHTML = romanToInt(input.toUpperCase())
-    } else {
+    } else if(!isNaN(input)) {
         result.innerHTML = intToRoman(parseInt(input))
+    } else {
+        result.innerHTML = "Entrada inválida"
     }
 }
 
