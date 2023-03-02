@@ -1,6 +1,11 @@
 const converterNumero = () => {
-    const input = document.getElementById('input').value
+    const input = document.getElementById('input').value.trim()
     const result = document.getElementById('result')
+
+    if(input === "") {
+        result.innerHTML = ""
+        return
+    }
 
     if(isNaN(input)) {
         result.innerHTML = romanToInt(input.toUpperCase())
