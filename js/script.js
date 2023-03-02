@@ -1,3 +1,19 @@
+const romanNumerals = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1,
+};
+
 const converterNumero = () => {
     const input = document.getElementById('input').value.trim()
     const result = document.getElementById('result')
@@ -9,7 +25,7 @@ const converterNumero = () => {
 
     if(/^[IVXLCDMivxlcdm\s]+$/.test(input)) {
         result.innerHTML = romanToInt(input.toUpperCase())
-    } else if(!isNaN(input)) {
+    } else if(/^[0-9]+$/.test(input)) {
         result.innerHTML = intToRoman(parseInt(input))
     } else {
         result.innerHTML = "Entrada inválida"
@@ -17,22 +33,6 @@ const converterNumero = () => {
 }
 
 const intToRoman = (num) => {
-    const romanNumerals = {
-      M: 1000,
-      CM: 900,
-      D: 500,
-      CD: 400,
-      C: 100,
-      XC: 90,
-      L: 50,
-      XL: 40,
-      X: 10,
-      IX: 9,
-      V: 5,
-      IV: 4,
-      I: 1,
-    };
-  
     let roman = "";
   
     for (let key in romanNumerals) {
@@ -46,22 +46,6 @@ const intToRoman = (num) => {
   }
   
 const romanToInt = (roman) => {
-    const romanNumerals = {
-      M: 1000,
-      CM: 900,
-      D: 500,
-      CD: 400,
-      C: 100,
-      XC: 90,
-      L: 50,
-      XL: 40,
-      X: 10,
-      IX: 9,
-      V: 5,
-      IV: 4,
-      I: 1,
-    };
-  
     let result = 0;
   
     for (let i = 0; i < roman.length; i++) {
